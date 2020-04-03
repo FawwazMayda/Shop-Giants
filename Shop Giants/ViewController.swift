@@ -16,6 +16,7 @@ struct Category {
 }
 class ViewController: UITableViewController {
 
+    var categories = [Category]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
