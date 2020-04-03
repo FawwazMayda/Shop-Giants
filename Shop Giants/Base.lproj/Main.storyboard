@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JTq-rK-K0o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M67-6q-t7g">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DEPAN-->
         <scene sceneID="08O-Rs-7Ae">
             <objects>
                 <tableViewController id="JTq-rK-K0o" customClass="ViewController" customModule="Shop_Giants" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,10 +46,38 @@
                             <outlet property="delegate" destination="JTq-rK-K0o" id="Itq-nL-UED"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="DEPAN" id="R33-kY-jLB">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="4GD-Co-vjO">
+                            <connections>
+                                <action selector="edit:" destination="JTq-rK-K0o" id="xSr-WM-fEv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="4GD-Co-vjO" id="9uc-pt-oWP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udU-xG-bEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="1"/>
+            <point key="canvasLocation" x="1150.7246376811595" y="0.6696428571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nnx-Ht-4PB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M67-6q-t7g" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PmU-ph-nbm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JTq-rK-K0o" kind="relationship" relationship="rootViewController" id="T98-5u-UCb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72B-UV-6s1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240.57971014492756" y="0.6696428571428571"/>
         </scene>
     </scenes>
 </document>

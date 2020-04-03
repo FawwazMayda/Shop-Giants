@@ -16,6 +16,7 @@ struct Category {
 }
 class ViewController: UITableViewController {
 
+    @IBOutlet weak var editButton: UIBarButtonItem!
     var categories = [
         Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori-1"),
          Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori-2"),
@@ -24,10 +25,18 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.tableView.isEditing = true
-      
     }
     
+    @IBAction func edit(_ sender: UIBarButtonItem) {
+        if editButton.title=="Edit" {
+            editButton.title="Done"
+            self.tableView.isEditing=true
+        } else if editButton.title=="Done" {
+            editButton.title="Edit"
+            self.tableView.isEditing=false
+        }
+        
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
