@@ -17,13 +17,14 @@ struct Category {
 class ViewController: UITableViewController {
 
     var categories = [
-        Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori"),
-         Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori"),
-          Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori")
+        Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori-1"),
+         Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori-2"),
+          Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori-3")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.tableView.isEditing = true
       
     }
     
@@ -44,8 +45,21 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+        return "Instrument"
     }
+    
+    //Ketika Cell dipilih
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(categories[indexPath.row].desc)")
+    }
+    
+    //Reordering cell
+   override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+          let object = categories[sourceIndexPath.row]
+          categories.remove(at: sourceIndexPath.row)
+          categories.insert(object, at: destinationIndexPath.row)
+      }
+    
     
 }
 
