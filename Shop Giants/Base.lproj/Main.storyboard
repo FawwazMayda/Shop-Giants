@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RoE-ty-Gjc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M67-6q-t7g">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -56,6 +56,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="4GD-Co-vjO" id="9uc-pt-oWP"/>
+                        <segue destination="RoE-ty-Gjc" kind="show" identifier="CategoryToProduct" id="lZQ-ms-cGs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udU-xG-bEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -91,6 +92,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVm-qc-6Sl">
                                             <rect key="frame" x="116" y="24" width="108" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Harga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpK-lY-bNa">
+                                            <rect key="frame" x="116" y="92" width="47" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -99,6 +107,7 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="185" height="131"/>
                                 <connections>
+                                    <outlet property="priceLabel" destination="kpK-lY-bNa" id="FNG-7y-oCM"/>
                                     <outlet property="productImg" destination="TJP-OT-Hk2" id="8RW-bo-hg9"/>
                                     <outlet property="productName" destination="UVm-qc-6Sl" id="nSq-UC-LJB"/>
                                 </connections>
@@ -109,6 +118,7 @@
                             <outlet property="delegate" destination="RoE-ty-Gjc" id="RWh-xb-9rK"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="4DE-KU-PxW"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBd-HX-5hJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

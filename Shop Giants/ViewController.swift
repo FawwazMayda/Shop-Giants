@@ -8,29 +8,17 @@
 
 import UIKit
 
-
-struct Category {
-    let image : String
-    let name : String
-    let desc : String
-}
-
-class ShopGiantCell : UITableViewCell {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var shopimageView: UIImageView!
-    
-}
 class ViewController: UITableViewController {
+    
+    var chosen = 0
 
     @IBOutlet weak var editButton: UIBarButtonItem!
     var categories = [
-        Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori-1"),
-         Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori-2"),
-          Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori-3"),
-          Category(image: "percussions-1", name: "Aksesori", desc: "Ya Aksesori-4")
+        Category(image: "lessons-1", name: "lessons", desc: "Ya Aksesori-1"),
+          Category(image: "piano-1", name: "piano", desc: "Ya Aksesori-3"),
+          Category(image: "percussions-1", name: "percussions", desc: "Ya Aksesori-4"),
+          Category(image: "brass-1", name: "brass", desc: "Ya Aksesori-5"),
+          Category(image: "accesories-1", name: "accesories", desc: "Ya Aksesori-6")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +58,8 @@ class ViewController: UITableViewController {
     
     //Ketika Cell dipilih
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(categories[indexPath.row].desc)")
+        chosen = indexPath.row
+        self.performSegue(withIdentifier: AppConst.CategoryToProductSegue, sender: self)
     }
     
     //Reordering cell
@@ -80,8 +69,12 @@ class ViewController: UITableViewController {
           categories.insert(object, at: destinationIndexPath.row)
       }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier==AppConst.CategoryToProductSegue) {
+            let VC = segue.destination as! ProductVC
+            VC.products = categories[chosen].product
+        }
+    }
 }
-
 
 

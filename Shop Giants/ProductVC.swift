@@ -11,13 +11,15 @@ import UIKit
 private let reuseIdentifier = "productCell"
 
 class ProductVC: UICollectionViewController {
-    
-    var categories = [
+    /*
+    var products = [
         Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori-1"),
          Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori-2"),
           Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori-3"),
           Category(image: "percussions-1", name: "Aksesori", desc: "Ya Aksesori-4")
     ]
+     */
+    var products = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +53,14 @@ class ProductVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return categories.count
+        return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProductCell {
-            print("IS CELL")
-            cell.productName.text = categories[indexPath.row].name
-            cell.productImg.image = UIImage(named: categories[indexPath.row].image)
+            cell.productName.text = products[indexPath.row].name
+            cell.priceLabel.text = "\(products[indexPath.row].price)"
+            cell.productImg.image = UIImage(named: products[indexPath.row].image)
             return cell
         }
         // Configure the cell
