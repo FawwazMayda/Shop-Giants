@@ -73,6 +73,7 @@ class ViewController: UITableViewController {
         if(segue.identifier==AppConst.CategoryToProductSegue) {
             let VC = segue.destination as! ProductVC
             VC.products = categories[chosen].product
+            VC.judul = categories[chosen].name
         }
     }
 }

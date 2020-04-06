@@ -20,6 +20,7 @@ class ProductVC: UICollectionViewController {
     ]
      */
     var products = [Product]()
+    var judul : String = "HALO"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class ProductVC: UICollectionViewController {
         // Register cell classes
         //self.collectionView!.register(ProductCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         // Do any additional setup after loading the view.
-        print("Masuk")
+        navigationItem.title = judul
     }
 
     /*
