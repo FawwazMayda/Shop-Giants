@@ -14,13 +14,23 @@ struct Category {
     let name : String
     let desc : String
 }
+
+class ShopGiantCell : UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var shopimageView: UIImageView!
+    
+}
 class ViewController: UITableViewController {
 
     @IBOutlet weak var editButton: UIBarButtonItem!
     var categories = [
         Category(image: "lessons-1", name: "Aksesori", desc: "Ya Aksesori-1"),
          Category(image: "brass-1", name: "Aksesori", desc: "Ya Aksesori-2"),
-          Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori-3")
+          Category(image: "piano-1", name: "Aksesori", desc: "Ya Aksesori-3"),
+          Category(image: "percussions-1", name: "Aksesori", desc: "Ya Aksesori-4")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +56,12 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        cell.detailTextLabel?.text = categories[indexPath.row].name
+       let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        cell.detailTextLabel?.text = categories[indexPath.row].desc
+        cell.textLabel?.text = categories[indexPath.row].name
         cell.imageView?.image = UIImage(named: categories[indexPath.row].image)
-            cell.textLabel?.text = categories[indexPath.row].desc
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
